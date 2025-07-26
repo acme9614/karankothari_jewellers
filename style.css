@@ -1,0 +1,32 @@
+.swiper-button-next,
+  .swiper-button-prev {
+    @apply w-10 h-10 bg-black/60 text-white rounded-full flex items-center justify-center transition hover:bg-[#AA7248];
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 24px !important;
+    color: white !important;
+    background-color: #2B2B2B; 
+    padding: 0.5rem;
+    font-weight: bold;
+  }
+
+
+
+  /* pagination  */
+ 
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #888;
+}
+
+.swiper-pagination-bullet-active {
+  background: #EEAA5E; /* your theme color */
+
+  border: 2px solid red;
+}
+
+

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>karankothari jewellers</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- Chronicle Display Font -->
+    <link
+      href="https://fonts.cdnfonts.com/css/chronicle-display"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div>
+      <header
+        class="bg-[#50304B] text-gray-900 relative flex items-center justify-center px-4 md:px-10 py-3"
+        data-aos="fade-down"
+      >
+        <!-- Hamburger Icon using Image -->
+        <button
+          id="menu-toggle"
+          class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
+          aria-label="Open Menu"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png"
+            alt="menu"
+            class="w-10 h-10 invert"
+            loading="lazy"
+          />
+        </button>
+
+        <!-- Centered Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/kkjpllogo.png" alt="Logo" class="h-16" />
+        </div>
+      </header>
+
+      <!-- Drawer -->
+      <div
+        id="drawer"
+        class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-[#50304B] shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+          <!-- Drawer Logo -->
+          <div
+            class="text-2xl font-bold text-[#133235] flex items-center gap-2"
+          >
+            <img src="assets/kkjpllogo258x140.png" alt="Logo" class="h-16" />
+          </div>
+          <!-- Close Drawer Button -->
+          <button
+            id="close-drawer"
+            class="text-white rounded text-2xl font-bold"
+            aria-label="Close Menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- Drawer Navigation Links -->
+        <nav class="flex flex-col gap-4 px-6 py-6 text-white">
+          <a href="#" onclick="navigateToScheme()">Scheme</a>
+          <a href="#" onclick="navigateToBankDetails()">Bank</a>
+          <a href="#" onclick="navigateToKyc()">KYC</a>
+          <a href="#" onclick="navigateToRate()">Rate</a>
+          <a href="#" onclick="navigateSchemeRecords()">Records</a>
+          <a href="#" onclick="navigateToCustomerCard()">Card</a>
+          <a href="#" onclick="navigateTransactionHistory()">History</a>
+          <a href="#" onclick="navigateToMyOrder()">Order</a>
+          <a href="#" onclick="navigateToUserProfile()">Profile</a>
+          <a href="#" onclick="navigateToDigitalGold()">Gold</a>
+          <a href="#" onclick="navigateToPanchang()">Panchang</a>
+          <a href="#" onclick="navigateToSetting()">Settings</a>
+        </nav>
+      </div>
+
+      <!-- Overlay -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+      ></div>
+    </div>
+
+    <!-- Swiper Slider  -->
+
+    <div class="relative w-full swiper brandingSlider">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide relative h-[200px] md:h-[600px]">
+          <!-- Desktop Image -->
+          <img
+            src="assets/slider1.jpg"
+            alt="Banner Desktop"
+            class="w-full h-full object-fill"
+          />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide relative h-[200px] md:h-[600px]">
+          <!-- Desktop Image -->
+          <img
+            src="assets/slider2.jpg"
+            alt="Banner Desktop"
+            class="w-full h-full object-fill"
+          />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide relative h-[200px] md:h-[600px]">
+          <!-- Desktop Image -->
+          <img
+            src="assets/slider3.jpg"
+            alt="Banner Desktop"
+            class="w-full h-full object-fill"
+          />
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide relative h-[200px] md:h-[600px]">
+          <!-- Desktop Image -->
+          <img
+            src="assets/slider4.jpg"
+            alt="Banner Desktop"
+            class="w-full h-full object-fill"
+          />
+        </div>
+      </div>
+
+      <!-- Swiper Controls -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next hidden md:block"></div>
+      <div class="swiper-button-prev hidden md:block"></div>
+    </div>
+
+    <!-- services  -->
+    <section
+      class="py-8 flex flex-col justify-center items-center"
+      data-aos="zoom-in-up"
+      data-aos-delay="500"
+    >
+      <!-- Grid Container -->
+      <div
+        id="tabGrid"
+        class="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-[768px]"
+      ></div>
+
+      <!-- Show More Button (only on mobile) -->
+      <button
+        id="toggleButton"
+        class="mt-4 md:hidden text-gray-700 text-sm flex items-center gap-2"
+      >
+        <svg
+          id="toggleIcon"
+          class="w-10 h-10 transition-transform duration-300"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </button>
+    </section>
+
+    <!-- about  -->
+    <section class="py-0 md:py-12" id="about">
+      <div class="max-w-6xl mx-auto px-4">
+        <h1
+          class="text-center text-3xl md:text-5xl font-bold mb-8"
+          data-aos="fade-up"
+        >
+          ABOUT US
+        </h1>
+
+        <div
+          class="space-y-6 text-justify  md:text-lg leading-relaxed text-gray-700"
+        >
+          <p data-aos="fade-up" data-aos-delay="100">
+            <strong class="text-xl md:text-2xl "
+              >Karan Kothari Jewellers Pvt Ltd</strong
+            >
+            is one of the best known and iconic jewellery manufacturing and
+            selling organizations in Nagpur. Established more than half a
+            century back in 1965, KKJ Jewellers has a long tradition of
+            presenting discerning connoisseurs with the most exquisite and
+            exclusive traditional as well as contemporary Indian jewellery.
+          </p>
+          <p data-aos="fade-up" data-aos-delay="200">
+            We at KKJ Jewellers have brought together a team of the most
+            talented craftsmen and artisans who specialize in the creation of
+            the most breath-taking jewellery in Silver, Gold and Platinum,
+            studded with glittering diamonds and gemstones, and casting a
+            bewitching spell on you at first sight. To capture the essence of
+            gemstones and ensure that they are of the highest quality, we also
+            have trained Graduate Gemologists and Graduate Jewelers on our team,
+            who have achieved their certifications from the Gemological
+            Institute of America (GIA).
+          </p>
+          <p data-aos="fade-up" data-aos-delay="300">
+            For us, everything is centered around our Circle of Trust and Ethos.
+            Our business is based, not on earning the maximum profit, but on
+            earning the trust and loyalty of you – our most precious customers,
+            who are more precious to us than the precious metals and stones that
+            we deal in. Our legacy has been built on this Circle of Trust and
+            Ethos, a legacy that has kept generations of customers coming to us
+            for all their jewellery needs.
+          </p>
+          <p data-aos="fade-up" data-aos-delay="400">
+            We do not look at customers simply as people to earn business from.
+            We consider them part of our team, which allows them to freely share
+            suggestions on how we can improve our services, and our designs. As
+            a result, every design creation by KKJ Jewellers is driven by inputs
+            from our valued customers, taken and molded into gorgeous pieces of
+            art by our supremely honed craftsmen.
+          </p>
+        </div>
+
+        <div class="py-4" data-aos="zoom-in-up" data-aos-delay="500">
+          <img src="assets/shop.png" alt="about-img" class="w-full shadow-lg" />
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY Karan kothari JEWELLERS SECTION -->
+    <section class="w-full px-4 md:px-12 py-10 bg-white text-center">
+      <h2
+        class="text-xl md:text-4xl uppercase text-[#602222] pb-10"
+        data-aos="fade-up"
+      >
+        Why KaranKothari Jewellers?
+      </h2>
+
+      <div
+        class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center relative"
+      >
+        <!-- Item 1 -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="assets/icon1.webp"
+            alt="Classic Designer Collection"
+            class="mb-3 w-16 h-16"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            BIS 916 <br />
+            Hallmarked
+          </h3>
+          <span
+            class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"
+          ></span>
+        </div>
+
+        <!-- Item 2 -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <img
+            src="assets/easy_exchange.webp"
+            alt="100% Satisfaction"
+            class="mb-3 w-16 h-16"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            Easy <br />
+            Exchange
+          </h3>
+          <span
+            class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"
+          ></span>
+        </div>
+
+        <!-- Item 3 -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <img
+            src="assets/lab_certified_diamonds.webp"
+            alt="Transparency"
+            class="mb-3 w-16 h-16"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            Lab Certified <br />
+            Daimonds
+          </h3>
+          <span
+            class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"
+          ></span>
+        </div>
+
+        <!-- Item 4 -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <img
+            src="assets/complete_transparency.webp"
+            alt="Guaranteed Exchange"
+            class="mb-3 w-16 h-16"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            Complete <br />
+            Transparancy
+          </h3>
+          <span
+            class="hidden lg:block absolute top-0 right-0 h-full w-px bg-gray-300"
+          ></span>
+        </div>
+
+        <!-- Item 5 -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <img
+            src="assets/gauranted_buyback.webp"
+            alt="Best Price Guaranteed"
+            class="mb-3 w-16 h-16"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            Guaranteed <br />Buypack
+          </h3>
+          <span
+            class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"
+          ></span>
+        </div>
+
+        <!-- Item 6 (no border needed) -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <img
+            src="assets/14_days_return_policynew.webp"
+            alt="Trustworthy"
+            class="mb-3 w-16 h-16"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            7 Days <br />Return Policy
+          </h3>
+          <span
+            class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"
+          ></span>
+        </div>
+
+        <!-- Item 7 (no border needed) -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <img
+            src="assets/secure_payment.webp"
+            alt="Trustworthy"
+            class="mb-3 w-16 h-16"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            Secure <br />Payments
+          </h3>
+          <span
+            class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"
+          ></span>
+        </div>
+
+        <!-- Item 8 (no border needed) -->
+        <div
+          class="relative flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <img
+            src="assets/free_delivery.webp"
+            alt="Trustworthy"
+            class="mb-3 w-12 h-12"
+          />
+          <h3 class="text-sm font-semibold text-[#602222]">
+            Free <br />Delivery
+          </h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer  -->
+    <footer class="bg-[#50304B] opacity-90">
+      <div class="w-full px-4 py-6 md:py-10 text-white">
+        <div
+          class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-2 items-center"
+        >
+          <div class="flex flex-col gap-4 mt-4 md:mt-0 md:mb-10">
+            <!-- Center: Logo -->
+            <div class="w-2/3">
+              <a
+                href="#"
+                class="flex justify-start md:justify-center items-center space-x-2"
+              >
+                <img
+                  src="assets/kkjpllogo.png"
+                  alt="karankothari jwls"
+                  class="h-36 w-auto"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="space-y-3">
+            <p class="font-playfair font-semibold text-xl">Contact us</p>
+            <p class="font-marcellus text-lg">
+              KaranKothari Jewellers ,
+              <br />
+              First Floor, Nikalas Mandir Road, Itwari, Nagpur,
+              <br />
+              Maharashtra, India - 440002,<br />
+              <br />
+
+              <span class="block">
+                 info@kkjpl.com <br />
+              marketing@kkjpl.com <br />
+                Contact Number - 9284861293 </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
