@@ -23,6 +23,14 @@ function navigateToScheme() {
   Toaster.postMessage("navigateScheme");
 }
 
+function navigateToCatalogues() {
+  Toaster.postMessage("navigateToCatalogues");
+}
+
+function navigateToQuickPurchase() {
+  Toaster.postMessage("navigateToQuickPurchase");
+}
+
 function navigateToBankDetails() {
   Toaster.postMessage("navigateBankDetails");
 }
@@ -123,6 +131,18 @@ AOS.init({
           icon: "https://cdn-icons-png.flaticon.com/128/10150/10150740.png",
           action: "navigateToScheme()",
         },
+
+          {
+          label: "Catalogues",
+          icon: "https://cdn-icons-png.flaticon.com/128/29/29341.png",
+          action: "navigateToCatalogues()",
+        },
+
+          {
+          label: "Quick Purchase",
+          icon: "https://cdn-icons-png.flaticon.com/128/1019/1019709.png",
+          action: "navigateToQuickPurchase()",
+        },
         {
           label: "Bank",
           icon: "https://cdn-icons-png.flaticon.com/128/522/522554.png",
@@ -184,12 +204,13 @@ AOS.init({
 
       items.forEach((item, index) => {
         const div = document.createElement("div");
-        div.className = `relative w-[110px] md:w-[120px] h-[120px] cursor-pointer ${
+        div.className = `relative w-[140px] md:w-[140px] h-[140px] cursor-pointer text-center ${
           index >= 6 ? "hidden mobile-hidden md:block" : ""
         }`;
         div.setAttribute("onclick", item.action);
 
         div.innerHTML = `
+        
         <svg class="absolute inset-0 w-full h-full" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
           <path d="M256,0 C260,40 280,40 300,60 C350,80 400,60 420,100
                    C440,140 420,180 460,200 C500,220 500,292 460,312
@@ -200,8 +221,8 @@ AOS.init({
                    C112,60 162,80 212,60 C232,40 252,40 256,0 Z"
                 fill="#50304B"/>
         </svg>
-        <img src="${item.icon}" alt="${item.label}" class="absolute top-[28px] left-[36px] md:left-[40px] w-[40px] h-[40px] invert" />
-        <div class="absolute bottom-[20px] left-1/2 -translate-x-1/2 text-white text-sm md:text-base font-semibold mb-2">
+        <img src="${item.icon}" alt="${item.label}" class="absolute top-[28px] left-[52px] md:left-[52px] w-[40px] h-[40px] invert" />
+        <div class="absolute bottom-[24px] md:bottom-[20px] left-1/2 -translate-x-1/2 text-white text-sm md:text-base font-semibold mb-2">
           ${item.label}
         </div>
       `;
