@@ -88,6 +88,10 @@ function navigateToHomePage() {
   Toaster.postMessage("navigateToHomePage");
 }
 
+function navigateToARVirtualTryOn() {
+  Toaster.postMessage("navigateToARVirtualTryOn");
+}
+
 
 // Branding Swiper
 const brandingSwiper = new Swiper(".brandingSlider", {
@@ -188,6 +192,11 @@ AOS.init({
           icon: "https://cdn-icons-png.flaticon.com/128/1473/1473430.png",
           action: "navigateToDigitalGold()",
         },
+          {
+          label: "Virtual Try-On",
+          icon: "assets/virtual.png",
+          action: "navigateToARVirtualTryOn()",
+        },
         {
           label: "Panchang",
           icon: "https://cdn-icons-png.flaticon.com/128/3013/3013143.png",
@@ -221,7 +230,7 @@ AOS.init({
                    C112,60 162,80 212,60 C232,40 252,40 256,0 Z"
                 fill="#50304B"/>
         </svg>
-        <img src="${item.icon}" alt="${item.label}" class="absolute top-[28px] left-[52px] md:left-[52px] w-[40px] h-[40px] invert" />
+        <img src="${item.icon}" alt="${item.label}" class="absolute top-[28px] left-[52px] md:left-[52px] w-[40px] h-[40px] ${item.label === 'Virtual Try-On' ? '' : 'invert'}" />
         <div class="absolute bottom-[24px] md:bottom-[20px] left-1/2 -translate-x-1/2 text-white text-sm md:text-base font-semibold mb-2">
           ${item.label}
         </div>
